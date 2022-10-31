@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+  <div class="tab-control">
+    <ul>
+      <li>
+        <input type="radio" name="item" class="radio-item" id="item1" checked/>
+        <label for="item1">tab1</label>
+        <div class="item">内容111111111111</div>
+      </li>
+      <li>
+        <input type="radio" name="item" class="radio-item" id="item2" />
+        <label for="item2">tab2</label>
+        <div class="item">内容211111111111</div>
+      </li>
+      <li>
+        <input type="radio" name="item" class="radio-item" id="item3" />
+        <label for="item3">tab3</label>
+        <div class="item">内容311111111111</div>
+      </li>
+    </ul>
+  </div>
+
+
+</div>
+
+</body>
+<style>
+  ul,
+  li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .container {
+    width: 400px;
+    height: 300px;
+    background-color: white;
+  }
+  input {
+    display: none;
+  }
+
+
+  .tab-control {
+    width: 100%;
+    height: 20%;
+  }
+
+  .tab-control ul {
+    height: 100%;
+  }
+
+  .tab-control li {
+    width: 25%;
+    height: 100%;
+    float: left;
+    box-sizing: border-box;
+    background-color: white;
+  }
+
+
+
+  .tab-control label {
+    box-sizing: border-box;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    line-height: 100%;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    vertical-align: middle;
+    border-bottom: 1px solid silver;
+    border-collapse: collapse;
+    /*border-right: 1px solid silver;*/
+  }
+
+  .tab-control .radio-item:checked+ label {
+    border-top: 1px solid silver;
+    border-left: 1px solid silver;
+    border-right: 1px solid silver;
+    border-radius: 10% 10% 0 0;
+    border-bottom: none;
+    border-collapse: collapse;
+    color: red;
+  }
+  .item{
+    width: 400%;
+    vertical-align: middle;
+    display: none;
+    /*text-align: center;*/
+  }
+  .tab-control .radio-item:checked+label+div{
+    width: 400%;
+    vertical-align: middle;
+    display:inline-block;
+    /*text-align: center;*/
+  }
+
+
+</style>
+</html>

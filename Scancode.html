@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <input id="scanCode" type="text" style="width: 1000px;" autofocus oninput="getFocus1()">
+    <br>
+<!--    <input id="scanCode1" type="text" style="width: 1000px;" onchange="getFocus1()">-->
+
+    <input type="button" value="获取1的焦点" onclick="getFocus1()">
+    <input type="button" value="获取2的焦点" onclick="getFocus2()">
+
+
+
+</body>
+<script type="text/javascript">
+    function getFocus1(){
+        console.log(11111)
+        // console.log(document.getElementById("scanCode").value)
+        if(document.getElementById("scanCode").value.length === 64){
+            console.log(document.getElementById("scanCode").value)
+            // document.getElementById("scanCode").blur();
+            // document.getElementById("scanCode").value = '请稍后再扫';
+            document.getElementById("scanCode").value = '';
+            // document.getElementById("scanCode").focus();
+            setTimeout(()=>{
+                // document.getElementById("scanCode").value = '';
+                // document.getElementById("scanCode").focus();
+
+            },1000);
+
+        }
+    }
+
+    function getFocus2(){
+
+        document.getElementById("scanCode1").focus();
+    }
+
+
+
+</script>
+
+</html>

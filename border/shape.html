@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="content" class="left">
+  <div id = "blueCircle" class="middle">
+  blue
+  </div>
+  <div id="triangle" class="middle">
+    <p>triangle</p>
+  </div>
+  <div id = "redCircle" class="middle">
+    red
+  </div>
+</div>
+
+</body>
+<style>
+  #blueCircle{
+    width: 100px;
+    height: 100px;
+    background: blue;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 50px;
+  }
+  #redCircle{
+    width: 100px;
+    height: 100px;
+    background: white;
+    border-radius: 50%;
+    border:30px solid red ;
+  }
+  #triangle{
+    width: 0;
+    height: 0;
+    border-top: 50px solid red;
+    border-left: 50px solid blue;
+    border-right: 50px solid yellow;
+    border-bottom: 50px solid green;
+
+
+  }
+  .middle{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .left{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+</style>
+</html>
