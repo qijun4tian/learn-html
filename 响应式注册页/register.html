@@ -5,30 +5,49 @@
     <title>Title</title>
 </head>
 <body>
-<h2>Register</h2>
-<form action="">
-    <div>
-        <label for="fullName">Full Name</label>
-        <input type="text" id="fullName" placeholder="Your full name..">
+<form action="" class="formStyle">
+    <h2>Register</h2>
+    <div class="row">
+        <div class="col-25">
+            <label class="labelStyle" for="fullName">Full Name</label>
+        </div>
+        <div class="col-75">
+            <input type="text" id="fullName" placeholder="Your full name.." class="inputStyle">
+        </div>
     </div>
-    <div>
-        <label for="UserName">User Name</label>
-        <input type="text" id="UserName" placeholder="User name..">
+    <div class="row">
+        <div class="col-25"><label class="labelStyle" for="UserName">User Name</label></div>
+        <div class="col-75"><input type="text" id="UserName" placeholder="User name.." class="inputStyle"></div>
     </div>
-    <div>
-        <label for="Password">Password</label>
-        <input type="text" id="Password" placeholder="Your password..">
+    <div class="row">
+        <div class="col-25"><label class="labelStyle" for="Password">Password</label></div>
+        <div class="col-75"><input type="text" id="Password" placeholder="Your password.." class="inputStyle"></div>
     </div>
-    <div>
-        <label for="Address">Address</label>
-        <select name="Address" id="Address">
+    <div class="row">
+        <div class="col-25"><label class="labelStyle" for="Address">Address</label></div>
+        <div class="col-75">
+            <select name="Address" id="Address" class="inputStyle">
+                <option>
+                    china
+                </option>
+                <option>
+                    usa
+                </option>
+            </select>
+        </div>
+    <div class="row">
+        <div class="col-25">
+            <label class="labelStyle" for="Suggestion">Suggestion</label>
+        </div>
+        <div class="col-75"><textarea class="inputStyle" name="Suggestion" id="Suggestion" cols="30" rows="10"
+                     placeholder="Write something.."></textarea>
+        </div>
+    </div>
+        <div class="row">
+            <input type="submit" value="Submit">
+        </div>
+    </div>
 
-        </select>
-    </div>
-    <div>
-        <label for="Password">Password</label>
-        <input type="text" id="Password" placeholder="Your password..">
-    </div>
 </form>
 
 </body>
@@ -36,6 +55,86 @@
     h2{
         color: rgb(59,137,138);
         text-align: center;
+    }
+    input[type=submit]{
+        background-color: #4CAF50;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        float: right;
+        margin: 15px;
+    }
+
+    /* Clear floats after the columns */
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+    .formStyle{
+        position: absolute;
+        top: 100px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        max-width: 500px;
+        /*height: 50%;*/
+        border-radius: 5px;
+        /*box-shadow：10px 10px 10px rgb(218,218,218);*/
+        /*box-shadow: 10px 10px 5px rgb(218,218,218);*/
+
+
+        box-shadow : 0px -10px 0px #3b898a, 10px 0px 10px rgb(218 218 218), 0px 10px 10px rgb(218 218 218), -10px 0px 11px rgb(218 218 218)
+    }
+    .row{
+        display: block;
+        width: 100%;
+    }
+    *{
+        box-sizing: border-box;
+
+    }
+    .inputStyle{
+        width: 90%;
+        background-color: rgb(245,245,245);
+        padding: 10px;
+        box-sizing: border-box;
+        border: none;
+        resize: vertical;
+    }
+    .col-25{
+        float: left;
+        width: 25%;
+        margin-top: 5px;
+        margin-bottom: 9px;
+        padding-left: 15px;
+    }
+    .col-75{
+        float: left;
+        width: 75%;
+        margin-top: 6px;
+    }
+    input[type=submit]:hover {
+        background-color: #45a049;
+    }
+    #UserName{
+        background-image: url("user.png");
+        background-repeat: no-repeat;
+        background-size: contain;
+        padding-left: 40px
+        /*background-position: left top;*/
+    }
+
+    @media screen and (max-width: 600px) {
+        .col-25, .col-75, input[type=submit] {
+            width: 100%;
+            margin-top: 0;
+        }
+    }
+    body{
+        font-family: Georgia;
     }
 
 </style>
