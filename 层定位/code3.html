@@ -6,7 +6,7 @@
 </head>
 <style>
     h1{
-        position: sticky;
+        /*position: sticky;*/
         top:0;
         text-align: left;
     }
@@ -14,8 +14,10 @@
         display: inline;
     }
     #navigation{
-        position: fixed;
-        background: white;
+        /*sticky必须配合top left right bottom 使用
+         * http://www.ruanyifeng.com/blog/2019/11/css-position.html
+        */
+        position: sticky;
         height: 10%;
         margin-top: 100px;
         /*margin-bottom: 100px;*/
@@ -24,6 +26,9 @@
         right: 0;
         top: 0;
         bottom: 0;
+        background: black;
+        color: white;
+
     }
     #navigation ul{
         height: 100%;
@@ -38,7 +43,7 @@
     #content1{
         margin-top: 200px;
         /*position: absolute;*/
-        height: 50%;
+        height: 60%;
         width: 100%;
         background: #dddddd;
     }
@@ -50,8 +55,8 @@
         background: white;
     }
         html,body{
-        /*overflow: auto;*/
-        /*overflow-x: hidden;*/
+        overflow: auto;
+        overflow-x: hidden;
         height: 100%;
         width: 100%;
     }
