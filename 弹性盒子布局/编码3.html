@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    *{
+        padding: 0;
+        margin: 0;
+    }
+    .header{
+        top:0;
+        height: 10%;
+        width: 100%;
+        text-align: center;
+        vertical-align: center;
+        background-color: #3b898a;
+    }
+    .middle{
+        height: 100%;
+        display: flex;
+        width: 100%;
+    }
+    .left{
+        background-color: blue;
+        width: 100px;
+        height: 100%;
+    }
+    .right{
+        float: right;
+        background-color: beige;
+        width: 100px;
+        height: 100%;
+
+    }
+    .middle2{
+        flex: 1;
+        background-color: red;
+        height: 100%;
+        text-align: center;
+        /*vertical-align: center;*/
+    }
+
+    #container{
+        width: 100%;
+        height: 100%;
+    }
+    html,body{
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    .footer{
+        background-color: #3b898a;
+        text-align: center;
+        position: sticky;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+    }
+</style>
+<body>
+<div id = "container">
+  <div class="header">header</div>
+  <div class="middle">
+      <div class="left">
+        left
+      </div>
+      <div class="middle2">
+          middle
+      </div>
+      <div class="right">
+          right
+      </div>
+
+
+
+  </div>
+  <div class="footer">footer</div>
+
+</div>
+
+
+
+
+</body>
+</html>
