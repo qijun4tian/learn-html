@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+  ul,li{
+    list-style: none;
+
+  }
+  #container{
+    width: 100%;
+  }
+  *{
+      border-collapse: collapse;
+  }
+  #container{
+    display: flex;
+    /*justify-content: space-between;*/
+    border:grey solid;
+    height: 100px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    /*justify-content: flex-start;*/
+  }
+  input{
+    display: none;
+  }
+  .li{
+    box-sizing: border-box;
+    /*padding-left: 50px;*/
+    /*width: 100%;*/
+    padding-top: 40px;
+    height: 100%;
+
+  }
+  .left{
+    margin-left: auto;
+  }
+  input:checked+label{
+    /*height: 100%;*/
+    border-bottom: solid #3b898a;
+      border-collapse: collapse;
+  }
+  label{
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    box-sizing: border-box;
+      padding: 0 50px;
+    /*line-height: 100%;*/
+    /*border: #3b898a;*/
+  }
+</style>
+<body>
+<div id="container">
+
+  <div class="li">
+    <input type="radio" name="item" id="home" class="space">
+    <label for="home">HOME</label>
+  </div>
+
+
+  <div class="li">
+      <input type="radio" name="item" id="blog" class="space">
+      <label for="blog">BLOG</label>
+   </div>
+
+  <div class="li">
+      <input type="radio" name="item" id="article" class="space">
+      <label for="article">ARTICLE</label>
+    </div>
+
+  <div class="li left">
+      <input type="radio" name="item" id="contact" class="space">
+      <label for="contact">CONTACT</label>
+    </div>
+</div>
+
+</body>
+</html>
