@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="head">
+    <p><span><strong>基本信息</strong></span>
+        <span id="sp1" onclick="change()">工作经历</span>
+        <span id="sp2" onclick="change()">教育经历</span>
+        <span id="sp3" onclick="change()">语言技能</span>
+        <span id="sp4" onclick="change()">奖状&证书</span></p>
+</div>
+<div id="workInfo">
+    <div class="self">
+        <p>hi i am from china</p>
+            <p><img src="relaxing-cat.jpg" style="float: left;width:70px;
+            height: 70px; border-radius: 20px">
+            <span style="font-size: 50px; font-weight: bold; margin-right: 50px">web developer</span>
+            xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+    </div>
+
+    <div class="work">
+        <div style="margin-right: 250px;">
+        <span class="bigFont">工作经历</span><br>
+        <span>2014-2015</span><br/>
+        <span style="font-weight: bold; border-bottom: 2px solid;">xxxx xxxxx</span><br/>
+        <span>Web Designer</span><br/>
+        <span>2014-2015</span><br/>
+        <span style="font-weight: bold; border-bottom: 2px solid;">xxxx xxx</span><br/>
+        <span>Web Designer</span>
+        <span>2014-2015</span><br/>
+        <span style="font-weight: bold; border-bottom: 2px solid;">xxxx xxx</span><br/>
+        <span>Web Designer</span>
+        </div>
+    </div>
+</div>
+
+<div id="eduInfo">
+    <div class="self">
+        <p>hi i am from china</p>
+        <p><img src="relaxing-cat.jpg" style="float: left;width:70px;
+            height: 70px; border-radius: 20px">
+            <span style="font-size: 50px; font-weight: bold; margin-right: 50px">web developer</span>
+            xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+    </div>
+
+    <div class="work">
+        <div style="margin-right: 250px;">
+            <span class="bigFont">教育经历</span><br>
+            <span>2014-2015</span><br/>
+            <span style="font-weight: bold; border-bottom: 2px solid;">xxxx xxxxx</span><br/>
+            <span>Web Designer</span><br/>
+            <span>2014-2015</span><br/>
+            <span style="font-weight: bold; border-bottom: 2px solid;">xxxx xxx</span><br/>
+            <span>Web Designer</span>
+            <span>2014-2015</span><br/>
+            <span style="font-weight: bold; border-bottom: 2px solid;">xxxx xxx</span><br/>
+            <span>Web Designer</span>
+        </div>
+    </div>
+</div>
+
+</body>
+<style>
+    #workInfo{
+        /*display: ;*/
+    }
+    #eduInfo{
+        display: none;
+    }
+  .head{
+    height: 100px;
+    background-color: grey;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .self{
+      height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      /*text-align: center;*/
+      /*display: table-cell;*/
+      /*vertical-align: middle;*/
+  }
+  .head span{
+      padding-left: 20px;
+  }
+  .self p{
+      padding-left: 80px;
+      width: 500px;
+      word-break: break-all;
+      word-wrap: break-word;
+
+
+  }
+  .work div span{
+      line-height: 200%;
+  }
+  .bigFont{
+      /*line-height: 200%;*/
+      font-size: 30px;
+  }
+  .work{
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: grey;
+  }
+</style>
+<script type="application/javascript">
+    function change(){
+        if(event.srcElement.id === 'sp1'){
+            let elementById = document.getElementById('workInfo');
+            elementById.style.cssText = "display: block";
+            let elementById1 = document.getElementById("eduInfo");
+            elementById1.style.cssText = "display: none"
+
+        }else if(event.srcElement.id === 'sp2'){
+            let elementById1 = document.getElementById("eduInfo");
+            elementById1.style.cssText = "display: block"
+            let elementById = document.getElementById('workInfo');
+            elementById.style.cssText = "display: none";
+
+        }
+    }
+</script>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
+    <title>Forms Review</title>
+</head>
+<body>
+<section id="overlay">
+
+    <p id="logo">Order your milktea!</p>
+    <hr>
+    <form id="orderForm" onsubmit="submitVal()">
+        <label>你需要什么口味的奶茶？
+            <input type="text" name="flavor" required minlength="2" maxlength="10"/>
+        </label>
+        <hr>
+        <label>你想要几杯？
+            <input type="number" name="count" required min="1" max="4"/>
+        </label>
+        <hr>
+        <label for="tangRange">你需要的糖分量？</label><br>
+        <input id="tangRange" type="range" value="3" min="1" max="5" name="sugar">
+        <hr>
+        <label>你需要什么顶料？</label><br>
+        <label><input type="checkbox" value="">冰淇凌</label>
+        <label><input type="checkbox" value="">奶盖</label>
+        <label><input type="checkbox" value="">可可粉</label>
+        <hr>
+        <label>你需要加冰吗？</label><br>
+        <label><input type="radio" value="1" name="ice">Yes</label>
+        <label><input type="radio" value="0" name="ice">No</label>
+        <hr>
+        <label for="liao">你需要加什么料</label><br>
+        <select name="liao" id="liao">
+            <option value="珍珠" selected>珍珠</option>
+            <option value="波霸">波霸</option>
+            <option value="布丁">布丁</option>
+        </select>
+        <hr>
+        <label for="guige">你要什么规格</label><br>
+        <select name="guige" id="guige">
+            <option value="小杯" selected>小杯</option>
+            <option value="中杯">中杯</option>
+            <option value="大杯">大杯</option>
+        </select>
+        <hr>
+        <label for="otherRequire">您还有别的什么要求吗</label><br>
+        <textarea name="otherRequire" id="otherRequire" cols="30" rows="4"></textarea>
+        <hr>
+        <label for="tel">您的联系方式</label>
+        <input type="tel" id="tel" name="tel" pattern="1[0-9]{10}">
+        <hr>
+
+
+
+        <input type="submit">
+
+    </form>
+    <!--在这里进行您的代码编写-->
+</section>
+</body>
+<script type="text/javascript">
+    function submitVal() {
+        debugger
+        console.log("11111")
+        let htmlFormElement = document.getElementById('orderForm');
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+                alert("提交成功");
+            }
+        }
+        xhr.open('post', 'http://localhost:8080/demo/order/submit');
+        xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+        let formData = new FormData(htmlFormElement);
+        var object = {};
+        formData.forEach((value, key) => object[key] = value);
+        var json = JSON.stringify(object);
+        console.log(json)
+        xhr.send(json);
+        console.log("2222222222")
+    }
+
+</script>
+</html>

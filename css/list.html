@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    <li>
+        第一层列表第一项
+        <ol class="sendLevel">
+            <li>第二层列表第一项</li>
+            <li>第二层列表第二项</li>
+            <li>
+                第二层列表第三项
+                <ol class="thirdLevel">
+                    <li>第三层列表第一项</li>
+                    <li>第三层列表第二项</li>
+                    <li>第三层列表第三项</li>
+                </ol>
+            </li>
+            <li>第二层列表第四项</li>
+        </ol>
+    </li>
+    <li>第一层列表第二项</li>
+    <li>第一层列表第三项</li>
+</ul>
+
+</body>
+<style>
+ul > li{
+    border: solid;
+    border-collapse: separate;
+}
+.sendLevel{
+    background-color: #eee;
+}
+.thirdLevel{
+    border:dashed;
+}
+li:first-child{
+    font-weight: bold;
+    color: white;
+    background-color: black;
+    border-bottom: solid;
+}
+.thirdLevel:last-child{
+    background-color: black;
+    font-style: italic;
+    color: white;
+}
+
+
+</style>
+</html>
