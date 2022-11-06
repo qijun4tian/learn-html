@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+  .container{
+    display: grid;
+    /*grid-template-columns: 1fr 1fr;*/
+    /*grid-template-rows: repeat(8,1fr);*/
+    grid-template-areas: 'd d1'
+                          '. d2'
+                           '. d3'
+                           's s1'
+                           '. s2'
+                           'b b1'
+                           '. b2'
+                           '. b3'
+                          ;
+
+    grid-gap: 20px;
+  }
+  .d{
+    grid-area: d;
+  }
+  .d1{
+    grid-area: d1;
+  }
+  .d2{
+    grid-area: d2;
+  }
+  .d3{
+    grid-area: d3;
+  }
+  .s{
+    grid-area: s;
+  }
+  .s1{
+    grid-area: s1;
+  }
+  .s2{
+    grid-area: s2;
+  }
+  .b{
+    grid-area: b;
+  }
+  .b1{
+    grid-area: b1;
+  }
+  .b2{
+    grid-area: b2;
+  }
+  .b3{
+    grid-area: b3;
+  }
+
+</style>
+<body>
+<div class="container">
+  <div class="d">恐龙类</div>
+  
+  <div class="d1">尹氏芦沟龙</div>
+  <div class="d2">
+    破碎中国虚骨龙
+  </div>
+  <div class="d3">
+    原始川东虚骨龙
+  </div>
+  <div class="s">
+    鲨鱼类
+  </div>
+  <div class="s1">
+   六鳃鲨目
+  </div>
+  <div class="s2">
+    鼠鲨目
+  </div>
+  <div class="b">
+    鸟类
+  </div>
+  <div class="b1">
+    雁形目
+  </div>
+  <div class="b2">
+    雨燕目
+  </div>
+  <div class="b3">
+    夜鹰目
+  </div>
+</div>
+</body>
+</html>
