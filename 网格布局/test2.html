@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    .container {
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        grid-template-rows: repeat(4,1fr);
+        grid-gap: 20px;
+    }
+    .div-style{
+        background-color: #4CAF50;
+    }
+    body,html{
+        height: 100%;
+        width: 100%;
+    }
+    .one{
+        grid-row: 1/ span 2;
+    }
+</style>
+<body>
+<div class="container">
+    <div class="div-style one">one</div>
+    <div class="div-style">tow</div>
+    <div class="div-style">three</div>
+    <div class="div-style">four</div>
+    <div class="div-style">five</div>
+    <div class="div-style">six</div>
+    <div class="div-style">seven</div>
+
+</div>
+
+</body>
+</html>
