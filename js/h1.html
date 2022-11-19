@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    #container{
+        height: 300px;
+        width: 300px;
+        border: solid red;
+        display: flex;
+        overflow: auto;
+
+    }
+    .three{
+        border: 0;
+        flex-grow: 1;
+        height: 100%;
+        display: flex;
+        padding: 10px;
+        /*margin: 5px;*/
+        flex-direction: column;
+    }
+    .item{
+        /*flex-grow: 1;*/
+        height: 30%;
+        border: solid red;
+        margin: 5px;
+        justify-content: space-between;
+    }
+    div{
+        border: solid red;
+
+    }
+    *{
+        box-sizing: border-box;
+    }
+</style>
+<body>
+<div id="container">
+
+
+</div>
+</body>
+<script>
+    const fruits = [1,2,3,4,5,6,7,8,9];
+    let subGroup1 = subGroup(fruits,3);
+    const container = document.querySelector("#container");
+    for(let i = 0; i < subGroup1.length; i++){
+        let three = `<div class="three" id=i` + i + `></div>`;
+        console.log('three', three);
+        container.insertAdjacentHTML("beforeend", three);
+        let subsub = subGroup1[i];
+        let id = '#i' + i;
+        console.log("id", id)
+        let parent = document.querySelector(id)
+        for(let j =0; j< subsub.length; j++){
+            parent.insertAdjacentHTML("beforeend", `<div class="item">${i}+${j}</div>`);
+        }
+    }
+
+
+
+
+
+    function subGroup(arr, len) {
+        var newArr = [];
+        for(var i = 0; i < arr.length; i += len){
+            newArr.push(arr.slice(i, i + len));
+        }
+        return newArr;
+    }
+</script>
+</html>
