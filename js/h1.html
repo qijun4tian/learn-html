@@ -48,9 +48,9 @@
     let subGroup1 = subGroup(fruits,3);
     const container = document.querySelector("#container");
     for(let i = 0; i < subGroup1.length; i++){
-        let three = `<div class="three" id=i` + i + `></div>`;
-        console.log('three', three);
-        container.insertAdjacentHTML("beforeend", three);
+        // let three = `<div class="three" id=i` + i + `></div>`;
+        // console.log('three', three);
+        container.insertAdjacentHTML("beforeend", `<div class="three" id=i${i}></div>`);
         let subsub = subGroup1[i];
         let id = '#i' + i;
         console.log("id", id)
@@ -71,5 +71,7 @@
         }
         return newArr;
     }
+
+
 </script>
 </html>
