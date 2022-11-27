@@ -1,0 +1,6 @@
+'use strict';
+console.log(x);                // undefined (注意，不会抛出 ReferenceError)
+console.log('still going...'); // still going...
+var x = 1;
+console.log(x);                // 1
+console.log('still going...'); // still going...

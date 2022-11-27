@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body class="center">
+
+<!--  <div class="columnLine"></div>-->
+<div class="box">
+    <div class="container">
+        <div class="head">
+            <h1 style="text-align: center">汉诺塔游戏</h1>
+            <label>
+                <input type="text" style="width: 400px; margin-left: 50px; height: 30px; border-radius: 5px" placeholder="请输入层数"
+                onchange="init()" id="levelDiv">
+            </label>
+            <button class="buttonStyle" style="display: inline" onclick="move('one','two')">next</button>
+            <button class="buttonStyle" style="display: inline">end</button>
+            <button class="buttonStyle" style="display: inline" onclick="reset()">reset</button>
+        </div>
+        <div class="num">
+
+        </div>
+        <div class="body">
+            <div class="tower" >
+                <div class="rowLine" id="one">
+                    <div class="columnLine"></div>
+                </div>
+                <div>
+                    <button class="modifybuttonStyle" style="display: inline" onclick="move('one','three')" >左</button>
+                    <button class="modifybuttonStyle" style="display: inline" onclick="move('one','two')" >右</button>
+                </div>
+            </div>
+            <div class="tower">
+                <div class="rowLine" id="two">
+                    <div class="columnLine"></div>
+                </div>
+                <div>
+                    <button class="modifybuttonStyle" style="display: inline" onclick="move('two','one')">左</button>
+                    <button class="modifybuttonStyle" style="display: inline" onclick="move('two','three')">右</button>
+                </div>
+            </div>
+            <div class="tower">
+                <div class="rowLine" id="three">
+                    <div class="columnLine"></div>
+                </div>
+                <div>
+                    <button class="modifybuttonStyle" style="display: inline" onclick="move('three','two')">左</button>
+                    <button class="modifybuttonStyle" style="display: inline" onclick="move('three','one')">右</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+<style>
+    .modifybuttonStyle{
+        background: orange;
+        border-radius: 20%;
+        height: 30px;
+        margin: 0 35px 0 35px;
+    }
+    .buttonStyle{
+        background: orange;
+        border-radius: 20%;
+        height: 30px;
+        margin: 20px;
+    }
+    .center{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #3eaf7c;
+    }
+    html,body{
+        height: 100%;
+    }
+    .num{
+        height: 100px;
+    }
+    /**{*/
+    /*    box-sizing: border-box;*/
+    /*}*/
+    .body{
+        display: flex;
+        justify-content: space-around;
+    }
+    .head{
+        height: 200px;
+    }
+    .container{
+        width: 800px;
+        height: 600px;
+        border: solid white 5px;
+    }
+  .tower{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      background: white;
+      border-radius: 20%;
+      height: 230px;
+      width: 230px;
+  }
+  .columnLine{
+      height: 150px;
+      border-left: solid black 5px;
+      flex-grow:0;
+
+  }
+  .brick{
+      width: 20px;
+      height: 10px;
+      background: red;
+      text-align: center;
+  }
+  .rowLine{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      width: 120px;
+      height: 150px;
+      border-bottom: solid black 5px;
+      border-radius: 10px;
+      /*background: #2d8935;*/
+  }
+</style>
+
+<script type="application/javascript">
+    var threeColumns = {
+        "one":[],
+        "two":[],
+        "three":[]
+    };
+    var result =[];
+
+    var elements=[];
+    var count = 0;
+    function reset(){
+        threeColumns = {
+            "one":[],
+            "two":[],
+            "three":[]
+        };
+        for (let i = 0; i < count; i++) {
+            console.log(`#id${i+1}`)
+            let element = document.querySelector(`#id${i+1}`);
+            if(element) {
+                element.remove();
+            }
+
+        }
+        count = 0;
+    }
+    var color = ["759bcd", "8b41fe", "bf3bf5", "f2bcb7", "2d8935", "46FF20", "528869", "885dc5"];
+    function init(event){
+            // console.log(event.keyCode)
+            reset();
+            count = document.getElementById('levelDiv').value;
+            console.log('宁输入的', count)
+            if (count > 8) {
+                alert("只能输入1-8的数字");
+                return;
+            }
+            // reset();
+            // 生成颜色 随机生成的不行 会覆盖数字
+            // for(let i =0; i<count; i++) {
+            //     while (true){
+            //         let tempColor = selectColor();
+            //         if(!color.includes(tempColor)){
+            //             color.push(tempColor);
+            //             break
+            //         }
+            //     }
+            // }
+
+            let element = document.querySelector("#one");
+            for (let i = count - 1; i >= 0; i--) {
+                let htmlDivElement = document.createElement('div');
+                let tempColor = color[i];
+                console.log("color", tempColor);
+                let height = 19;
+                console.log("color", height);
+                // height:${height}px;
+                console.log("2", `width:${60 - i * 5}px;height:%${height};background:#${tempColor}; text-align: center; flex-grow:1`)
+                htmlDivElement.style = `width:${60 - i * 5}px;height:${height}px;background:#${tempColor}; text-align: center; flex-grow:1`
+                htmlDivElement.innerText = `${count - i}`
+                htmlDivElement.id = `id${count - i}`;
+                elements.push(htmlDivElement);
+                element.insertAdjacentElement("beforeend", htmlDivElement);
+                threeColumns.one.push(count - i);
+            }
+            result = [...threeColumns.one];
+
+
+    }
+    function move(from, to) {
+        let fromArray = threeColumns[from];
+        let toArray = threeColumns[to];
+        if (toArray.length !== 0) {
+            if (toArray[0] < fromArray[0]) {
+                alert("不能操作");
+                return;
+            }
+        }
+        removeElement('id' + fromArray[0])
+        addElement(to, fromArray[0])
+        toArray.unshift(fromArray[0])
+        fromArray.shift();
+        setTimeout(() => {
+            if (isEnd()) {
+                alert("成功了");
+                console.log("成功了")
+            }
+        }, 100)
+    }
+    function isEnd(){
+        if(threeColumns.three.length === result.length){
+            for(let i =0; i< result.length; i++){
+                if(threeColumns.three[i] !== result[i]){
+                    return false;
+                }
+            }
+            return true;
+        }
+        return false;
+    }
+    function removeElement(id){
+        console.log("id=", id)
+        let element = document.querySelector(`#${id}`);
+        if(element) {
+            element.remove();
+        }
+    }
+    function addElement(to,index){
+        console.log("index",index);
+        console.log('to',`#${to}`);
+        if(threeColumns[to].length !== 0) {
+            let beforeId = threeColumns[to][0];
+            let element = document.getElementById(`id${beforeId}`);
+            let parent = document.querySelector(`#${to}`);
+            console.log("index-x", index - 1, elements[index - 1])
+            parent.insertBefore(elements[index - 1], element);
+        }else {
+            let element = document.querySelector(`#${to}`);
+            console.log("index-x", index - 1, elements[index - 1])
+            element.insertAdjacentElement("beforeend", elements[index - 1]);
+        }
+
+
+    }
+
+
+
+    function selectColor() {
+        var choice = 256;
+        return Math.floor(Math.random() * choice).toString(16)
+        + Math.floor(Math.random() * choice).toString(16)
+        + Math.floor(Math.random() * choice).toString(16)
+    }
+</script>
+</html>

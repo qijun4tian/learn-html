@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script src="vue.js"></script>
 </head>
 <body>
     <div id="app-2">
@@ -16,7 +16,8 @@
             </li>
         </ol>
         <p>{{msg}}</p>
-        <button style="height: 100px; width:200px" name="提交" v-on:click="reverseMsg">dianwo</button>
+        <button style="height: 100px; width:200px" name="提交" v-on:click="reverseMsg()">dianwo</button>
+        <p v-if="iseen()">看见</p>
     </div>
 
 
@@ -31,11 +32,17 @@
                 { text: '学习 Vue' },
                 { text: '整个牛项目' }
             ],
-            msg:'vue shit'
+            msg:'vue shit',
+            seen:true
         },
         methods: {
             reverseMsg:function (){
                 this.msg = this.msg.split('').reverse().join('')
+                this.seen = !this.seen;
+                console.log(this.seen);
+            },
+            iseen:function (){
+                return this.seen;
             }
         }
 
