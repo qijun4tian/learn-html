@@ -16,8 +16,8 @@
                 onchange="init()" id="levelDiv">
             </label>
             <button class="buttonStyle" style="display: inline" onclick="doHanni()">next</button>
-            <button class="buttonStyle" style="display: inline">end</button>
-            <button class="buttonStyle" style="display: inline" onclick="reset()">reset</button>
+            <button class="buttonStyle" style="display: inline" onclick="end()">end</button>
+            <button class="buttonStyle" style="display: inline" onclick="init()">reset</button>
         </div>
         <div class="num">
 
@@ -143,6 +143,21 @@
 
     var steps = [];
     var count = 0;
+    async function end(){
+        if(steps.length === 0){
+            alert("请先输入层数")
+        }
+        while (steps.length !== 0){
+            console.log('length', steps.length)
+            let shift = steps.shift();
+            console.log(shift)
+            await new Promise((move, reject)=>{
+                setTimeout(()=>{
+                    move(shift["from"],shift["to"]);
+                },300);
+            })
+        }
+    }
     function reset(){
         threeColumns = {
             "one":[],
@@ -157,14 +172,14 @@
             }
 
         }
-        count = 0;
-        steps= [];
+        steps = [];
     }
     var color = ["759bcd", "8b41fe", "bf3bf5", "f2bcb7", "2d8935", "46FF20", "528869", "885dc5"];
     function init(event){
             // console.log(event.keyCode)
             reset();
             count = document.getElementById('levelDiv').value;
+            hanin(count,"one","two","three")
             console.log('宁输入的', count)
             if (count > 8) {
                 alert("只能输入1-8的数字");
@@ -199,14 +214,16 @@
                 threeColumns.one.push(count - i);
             }
             result = [...threeColumns.one];
-            hanin(count,"one","two","three")
+
 
 
     }
     function doHanni(){
+        if(steps.length === 0){
+            alert("请先输入层数")
+        }
+        console.log(steps)
         let step = steps.shift();
-        console.log(step)
-        console.log(step)
         move(step["from"],step["to"]);
 
     }
