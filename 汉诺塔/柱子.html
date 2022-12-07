@@ -15,7 +15,7 @@
                 <input type="text" style="width: 400px; margin-left: 50px; height: 30px; border-radius: 5px" placeholder="请输入层数"
                 onchange="init()" id="levelDiv">
             </label>
-            <button class="buttonStyle" style="display: inline" onclick="move('one','two')">next</button>
+            <button class="buttonStyle" style="display: inline" onclick="doHanni()">next</button>
             <button class="buttonStyle" style="display: inline">end</button>
             <button class="buttonStyle" style="display: inline" onclick="reset()">reset</button>
         </div>
@@ -140,6 +140,8 @@
     var result =[];
 
     var elements=[];
+
+    var steps = [];
     var count = 0;
     function reset(){
         threeColumns = {
@@ -156,6 +158,7 @@
 
         }
         count = 0;
+        steps= [];
     }
     var color = ["759bcd", "8b41fe", "bf3bf5", "f2bcb7", "2d8935", "46FF20", "528869", "885dc5"];
     function init(event){
@@ -196,7 +199,15 @@
                 threeColumns.one.push(count - i);
             }
             result = [...threeColumns.one];
+            hanin(count,"one","two","three")
 
+
+    }
+    function doHanni(){
+        let step = steps.shift();
+        console.log(step)
+        console.log(step)
+        move(step["from"],step["to"]);
 
     }
     function move(from, to) {
@@ -252,6 +263,19 @@
             element.insertAdjacentElement("beforeend", elements[index - 1]);
         }
 
+
+    }
+
+    function hanin(n,begin, middle, end){
+        if(n >0){
+            hanin(n-1,begin, end, middle)
+            console.log("移动"+n+"从" + begin +"到" + end);
+            steps.push({
+                "from":begin,
+                "to":end
+            })
+            hanin(n-1,middle,begin,end);
+        }
 
     }
 

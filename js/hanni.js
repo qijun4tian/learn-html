@@ -1,11 +1,15 @@
 
 
-function hanin(n,begin, middle, end, num){
+function hanin(n,begin, middle, end){
     if(n >0){
-        hanin(n-1,begin, end, middle,num)
+        hanin(n-1,begin, end, middle)
         obj.num++;
         console.log("移动"+n+"从" + begin +"到" + end);
-        hanin(n-1,middle,begin,end,num);
+        steps.push({
+            "from":begin,
+            "to":end
+        })
+        hanin(n-1,middle,begin,end);
     }
 
 }
@@ -13,8 +17,11 @@ function hanin(n,begin, middle, end, num){
 var obj = {
     num:0
 }
-hanin(3,'a','b','c',obj);
+var steps = [];
+hanin(3,'a','b','c');
 console.log(obj)
+
+console.log(steps)
 
 
 
