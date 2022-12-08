@@ -147,16 +147,14 @@
         if(steps.length === 0){
             alert("请先输入层数")
         }
-        while (steps.length !== 0){
-            console.log('length', steps.length)
-            let shift = steps.shift();
-            console.log(shift)
-            await new Promise((move, reject)=>{
-                setTimeout(()=>{
-                    move(shift["from"],shift["to"]);
-                },300);
-            })
-        }
+        let interval = setInterval(()=>{
+            let step = steps.shift();
+            move(step["from"],step["to"]);
+            if(steps.length ===0){
+                clearInterval(interval);
+            }
+
+        },1000);
     }
     function reset(){
         threeColumns = {
@@ -173,6 +171,7 @@
 
         }
         steps = [];
+        elements = [];
     }
     var color = ["759bcd", "8b41fe", "bf3bf5", "f2bcb7", "2d8935", "46FF20", "528869", "885dc5"];
     function init(event){
@@ -224,6 +223,7 @@
         }
         console.log(steps)
         let step = steps.shift();
+        console.log(step["from"],step["to"])
         move(step["from"],step["to"]);
 
     }
@@ -238,6 +238,7 @@
         }
         removeElement('id' + fromArray[0])
         addElement(to, fromArray[0])
+        console.log(fromArray[0])
         toArray.unshift(fromArray[0])
         fromArray.shift();
         setTimeout(() => {
@@ -267,7 +268,7 @@
     }
     function addElement(to,index){
         console.log("index",index);
-        console.log('to',`#${to}`);
+        // console.log('to',`#${to}`);
         if(threeColumns[to].length !== 0) {
             let beforeId = threeColumns[to][0];
             let element = document.getElementById(`id${beforeId}`);
